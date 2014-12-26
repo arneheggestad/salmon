@@ -4,4 +4,3 @@ var express = require('express'),
 		session = require('express-session'),
 		game = require('./app/game.js')
 		;
-

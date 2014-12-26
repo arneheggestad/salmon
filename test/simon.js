@@ -27,4 +27,68 @@ describe('round 1', function () {
 			done();
 		});
 	});
+	it('first round answer should be correct', function (done) {
+		var testGame = {
+			choices: 4,
+			round: 1,
+			answer: '1',
+			guess: '1'
+		};
+		simon.checkAns(testGame, function (err, returnedGame, correct) {
+			correct.should.eql(true);
+			done();
+		})
+	});
+	it('first round answer should be incorrect', function (done) {
+		var testGame = {
+			choices: 4,
+			round: 1,
+			answer: '1',
+			guess: '2'
+		};
+		simon.checkAns(testGame, function (err, returnedGame, correct) {
+			correct.should.eql(false);
+			done();
+		})
+	});
+});
+describe('later game', function () {
+	it('should create a round 18 answer', function (done) {
+		var testGame = {
+			choices: 4,
+			round: 18,
+			answer: '12332321132322231',
+			guess: '12332321132322231'
+		};		
+		simon.newRound(testGame, function (err, returnedGame) {
+			(typeof(returnedGame)).should.eql('object');
+			(returnedGame.answer.length).should.eql(18);
+			returnedGame.answer.should.startWith(testGame.answer);
+			done();
+		})
+	});
+	it('later game answer should be correct', function (done) {
+		var testGame = {
+			choices: 4,
+			round: 17,
+			answer: '123323211323222311',
+			guess: '123323211323222311'
+		};
+		simon.checkAns(testGame, function (err, returnedGame, correct) {
+			correct.should.eql(true);
+			done();
+		})
+	});
+	it('later game answer should be correct', function (done) {
+		var testGame = {
+			choices: 4,
+			round: 18,
+			answer: '123323211323222311',
+			guess: '123323211323222211'
+		};
+		simon.checkAns(testGame, function (err, returnedGame, correct) {
+			correct.should.eql(false);
+			done();
+		})
+	})	
 })
