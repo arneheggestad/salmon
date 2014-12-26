@@ -92,3 +92,34 @@ describe('later game', function () {
 		})
 	})	
 });
+describe('initialize game errors', function () {
+	it('should not start: too many options', function (done) {
+		options.choices = 73;
+		simon.init(options, function (err, returnedGame) {
+			err.should.exist;
+			console.log(err);
+			done();
+		});
+	});
+	it('should not start: too few options', function (done) {
+		options.choices = 1;
+		simon.init(options, function (err, returnedGame) {
+			err.should.exist;
+			done();
+		});
+	});
+	it('should not start: too few options', function (done) {
+		options.choices = -231;
+		simon.init(options, function (err, returnedGame) {
+			err.should.exist;
+			done();
+		});
+	});
+	it('should not start: illegal choice', function (done) {
+		options.choices = 'fred';
+		simon.init(options, function (err, returnedGame) {
+			err.should.exist;
+			done();
+		})
+	})
+})
