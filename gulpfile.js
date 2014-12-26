@@ -2,7 +2,7 @@ var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     jscs = require('gulp-jscs'),
     scriptPaths = [
-      'gulpfile.js', 'index.js', 'lib/*.js',
+      'gulpfile.js', 'index.js', 'app/*.js',
       '!test/**'
                   ]
     ;

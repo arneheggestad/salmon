@@ -91,4 +91,4 @@ describe('later game', function () {
 			done();
 		})
 	})	
-})
+});

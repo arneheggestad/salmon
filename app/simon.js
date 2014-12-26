@@ -1,6 +1,6 @@
 var game = {
 	// initialize a new game
-	init: function (options, callback) { 
+	init: function (options, callback) {
 		if (!options.choices) {
 			options.choices = 4;
 		}
@@ -37,7 +37,6 @@ var game = {
 			}
 		}
 	}
-
 }
 
 module.exports = game;
