@@ -1,6 +1,6 @@
 var alpha = '01234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 
-var game = {
+var simon = {
 	// initialize a new game
 	init: function (options, callback) {
 		if (!options.choices) {
@@ -52,4 +52,4 @@ var game = {
 	}
 }
 
-module.exports = game;
+module.exports = simon;
