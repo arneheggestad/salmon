@@ -21,7 +21,7 @@ var game = {
 			round: 0,
 			answer: '',
 			guess: ''
-		}
+		};
 		return callback(null, newGame);
 	},
 	// increments round counter and generates a new random number for the next round
