@@ -6,9 +6,11 @@ var game = {
 		if (!options.choices) {
 			options.choices = 4;
 		}
-		if (typeof (options.choices) !== 'number') {
+		if (isNaN(parseInt(options.choices))) {
+			console.log('Not a number.');
 			return callback('Sorry. I don\'t know the number \"' + options.choices + '\".');
 		}
+		options.choices = parseInt(options.choices);
 		if (options.choices > 62) {
 			return callback('Sorry. I can\'t support that many options right now.');
 		}
@@ -22,12 +24,12 @@ var game = {
 			answer: '',
 			guess: ''
 		};
+		console.log(newGame);
 		return callback(null, newGame);
 	},
 	// increments round counter and generates a new random number for the next round
 	newRound: function (gameObj, callback) {
-		var max = parseInt(gameObj.choices);
-		var newChar = alpha.charAt(Math.floor(Math.random() * max + 1));
+		var newChar = alpha.charAt(Math.floor(Math.random() * gameObj.choices + 1));
 		console.log(gameObj.answer, newChar);
 		gameObj.round++;
 		gameObj.answer = gameObj.answer + newChar;
