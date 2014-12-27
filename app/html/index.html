@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Salmon</title>
+  </head>
+  <body>
+    <canvas id="game" width="500" height="300">
+    </canvas>
+    <script>
+      var c=document.getElementById("game");
+      var ctx=c.getContext("2d");
+      var pieces = 3,
+          startAngle = 1.5 * Math.PI,
+          arcPiece = (360 / pieces) / 180 * Math.PI,
+          colors = ["red", "blue", "yellow"];
+
+      for (var i = 0; i < pieces; i++) {
+        ctx.beginPath();
+        var color = (i) % 3;
+        ctx.arc(100, 100, 75, startAngle, startAngle + arcPiece);
+        ctx.fillStyle = colors[color];
+        ctx.fill();
+        // ctx.beginPath();
+        // ctx.lineWidth = 5;
+        // ctx.strokeStyle = black;
+        // ctx.arc(100, 100, 75, startAngle, startAngle + arcPiece);
+        // ctx.stroke();
+        startAngle = startAngle + arcPiece;
+      }
+
+    </script>
+  </body>
+</html>
