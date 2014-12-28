@@ -15,14 +15,16 @@ app.use(express.static(__dirname + '/'));
 app.listen(port);
 console.log('Waiting for players on port ' + port);
 
-var pieces = 4,
+var pieces = 6,
     startAngle = 1.5,
-    arcPiece = (360 / pieces) / 180,
-    colors = ["red", "blue", "yellow"];
+    arcPiece = (360 / pieces) / 180, // arc piece in radians
+    colorArray = require('./colorArray.js'),
+    currentAngle = 0,
+    currentColor = '';
+    ;
 
 for (var i = 0; i < pieces; i++) {
-  var color = (i) % 3;
-  var fillStyle = colors[color];
-  console.log(fillStyle, startAngle, arcPiece);
-  startAngle = startAngle + arcPiece;
+  currentColor = colorArray[Math.floor(currentAngle * 48)];
+  console.log(i, currentColor)
+  currentAngle += arcPiece;
 }
