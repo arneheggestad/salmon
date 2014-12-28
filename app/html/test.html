@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Salmon</title>
+  </head>
+  <body>
+    <canvas id="game" width="500" height="300">
+    </canvas>
+    <script src="./js/chart.js"></script>
+    <script>
+      var c = document.getElementById("game");
+      var ctx = c.getContext("2d");
+      var data = [ { value: 0.2, color: '#f00', highlight: '#f00', label: 1 },
+  { value: 0.2, color: '#cf0', highlight: '#cf0', label: 2 },
+  { value: 0.2, color: '#0f6', highlight: '#0f6', label: 3 },
+  { value: 0.2, color: '#06f', highlight: '#06f', label: 4 },
+  { value: 0.2, color: '#c0f', highlight: '#c0f', label: 5 } ];
+      var gameChart = new Chart(ctx).Pie(data);
+
+    </script>
+  </body>
+</html>
