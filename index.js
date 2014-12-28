@@ -7,9 +7,10 @@ var express = require('express'),
 		;
 
 app.use(morgan('dev'));
-app.set('static', __dirname + '/html');
+app.set('static', __dirname + 'app/html/');
+app.use(express.static(__dirname + '/'));
 
-require('./app/routes.js')(app);
+// require('./app/routes.js')(app);
 
 app.listen(port);
 console.log('Waiting for players on port ' + port);

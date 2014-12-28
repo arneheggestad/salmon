@@ -6,27 +6,28 @@
   <body>
     <canvas id="game" width="500" height="300">
     </canvas>
+    <script src="./js/chart.js"></script>
     <script>
-      var c=document.getElementById("game");
-      var ctx=c.getContext("2d");
-      var pieces = 3,
+      var c = document.getElementById("game");
+      var ctx = c.getContext("2d");
+      var pieces = 6,
           startAngle = 1.5 * Math.PI,
           arcPiece = (360 / pieces) / 180 * Math.PI,
-          colors = ["red", "blue", "yellow"];
+          baseColors = ["#FF0033", "#0000FF", "#FFFF66"],
+          highlightColors = ["#FF0000", "#000099", "#FFFF00"],
+          data = [];
 
       for (var i = 0; i < pieces; i++) {
-        ctx.beginPath();
-        var color = (i) % 3;
-        ctx.arc(100, 100, 75, startAngle, startAngle + arcPiece);
-        ctx.fillStyle = colors[color];
-        ctx.fill();
-        // ctx.beginPath();
-        // ctx.lineWidth = 5;
-        // ctx.strokeStyle = black;
-        // ctx.arc(100, 100, 75, startAngle, startAngle + arcPiece);
-        // ctx.stroke();
-        startAngle = startAngle + arcPiece;
-      }
+        var tmp = {
+          value: 1 / pieces,
+          color: baseColors[i % baseColors.length],
+          highlight: highlightColors[i % highlightColors.length],
+          label: i + 1
+        };
+        data.push(tmp);
+      };
+      console.log(data);
+      var gameChart = new Chart(ctx).Pie(data);
 
     </script>
   </body>
