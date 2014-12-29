@@ -10,15 +10,15 @@ var utilities = {
 	      for (var j = 0; j < 16; j++) {
 	        tmp = hex.charAt(j);
 	        if (i === 0) {
-	          var color = '#' + 'f' + tmp + '0';
+	          var color = '#' + 'ff' + tmp + '0' + '00';
 	          colors.push(color);
 	        }
 	        if (i === 2) {
-	          var color = '#' + '0' + 'f' + tmp;
+	          var color = '#' + '00' + 'ff' + tmp + '0';
 	          colors.push(color);        
 	        }
 	        if (i === 4) {
-	          var color = '#' + tmp + '0' + 'f';
+	          var color = '#' + tmp + '0' + '00' + 'ff';
 	          colors.push(color);
 	        }
 	      }
@@ -26,15 +26,15 @@ var utilities = {
 	      for (var j = 15; j >= 0; j--) {
 	        tmp = hex.charAt(j);
 	        if (i === 1) {
-	          var color = '#' + tmp + 'f' + '0';
+	          var color = '#' + tmp + '0' + 'ff' + '00';
 	          colors.push(color);
 	        }
 	        if (i === 3) {
-	          var color = '#' + '0' + tmp + 'f';
+	          var color = '#' + '00' + tmp + '0' + 'ff';
 	          colors.push(color);        
 	        }
 	        if (i === 5) {
-	          var color = '#' + 'f' + '0' + tmp;
+	          var color = '#' + 'ff' + '00' + tmp + '0';
 	          colors.push(color);
 	        }
 	      }
